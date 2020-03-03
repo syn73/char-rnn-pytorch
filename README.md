@@ -1,0 +1,1 @@
+Modified from [spro/practical-pytorch/char-rnn-generation](https://github.com/spro/practical-pytorch/tree/master/char-rnn-generation)

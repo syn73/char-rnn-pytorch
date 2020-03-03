@@ -1,0 +1,8 @@
+*.swp
+*.swo
+*.pt
+__pycache__
+logs/
+save/
+*.csv
+*.txt
