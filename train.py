@@ -130,7 +130,7 @@ smooth_loss = 0
 smooth_time_iter = 0
 try:
     #print("Training for %d epochs with %d iters" (% args.n_epochs, iters))
-    for epoch in range(ep_start, args.n_epochs):
+    for epoch in range(ep_start, args.n_epochs+1):
         for its in range(iter_start, iters + 1):
             its_time = time.time()
             if (epoch != 1 and epoch % args.epoch_random == 0) or args.all_rand:
@@ -149,7 +149,7 @@ try:
             if smooth_time_iter != 0: smooth_time_iter = smooth_time_iter * 0.999 + time_iter * 0.001
             else: smooth_time_iter = time_iter
 
-            if args_condition(args.print_every,steps):
+            if args_condition(args.print_every,steps) or steps == 1:
                 est_time =  ((args.n_epochs * iters) - steps) * smooth_time_iter / 60 / 60
                 print('epoch %d/%d, iter %d/%d, loss: %.6f, time/iter: %.4f, time elapsed: %s, est: %.2fh'
                     % (epoch, args.n_epochs, its, iters, smooth_loss, smooth_time_iter, time_since(start), est_time))
